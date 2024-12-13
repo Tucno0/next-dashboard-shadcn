@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import { geistMono, geistSans, inter } from "@/lib/fonts";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 
