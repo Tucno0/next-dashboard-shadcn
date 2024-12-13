@@ -17,7 +17,7 @@ import {
 import { NavMain } from "@/components/layout/sidenav/nav-main"
 import { NavProjects } from "@/components/layout/sidenav/nav-projects"
 import { NavUser } from "@/components/layout/sidenav/nav-user"
-import { TeamSwitcher } from "@/components/theme/team-switcher"
+import { TeamSwitcher } from "@/components/layout/sidenav/team-switcher"
 import {
   Sidebar,
   SidebarContent,

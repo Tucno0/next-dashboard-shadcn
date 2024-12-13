@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Separator } from "../../ui/separator";
 import { SidebarTrigger } from "../../ui/sidebar";
 import { Breadcrumbs } from "./breadcrumbs";
@@ -26,8 +27,8 @@ export const Header = () => {
           <SearchInput />
         </div>
 
+        <ThemeToggle />
         <UserNav user={data.user}/>
-        {/* <ThemeToggle /> */}
       </div>
     </header>
   );
