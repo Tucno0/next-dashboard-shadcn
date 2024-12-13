@@ -11,7 +11,7 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-}
+};
 
 export const Header = () => {
   return (
@@ -28,8 +28,27 @@ export const Header = () => {
         </div>
 
         <ThemeToggle />
-        <UserNav user={data.user}/>
+        <UserNav user={data.user} />
       </div>
     </header>
   );
 };
+
+{/* <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-border">
+  <div className="flex h-14 items-center justify-between">
+    <div className="flex items-center gap-2 px-4">
+      <SidebarTrigger className="-ml-1" />
+      <Separator orientation="vertical" className="mr-2 h-4" />
+      <Breadcrumbs />
+    </div>
+
+    <div className="flex items-center gap-2 px-4">
+      <div className="hidden md:flex">
+        <SearchInput />
+      </div>
+
+      <ThemeToggle />
+      <UserNav user={data.user} />
+    </div>
+  </div>
+</header>; */}
