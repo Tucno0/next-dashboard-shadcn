@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description: "Basic dashboard with Next.js and Shadcn",
 };
 
-export default async function DashboardLayout({
-  children,
-}: Readonly<{
+interface Props {
   children: React.ReactNode;
-}>) {
+}
+
+export default async function DashboardLayout({ children }: Readonly<Props>) {
   // Persisting the sidebar state in the cookie.
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
@@ -26,9 +26,7 @@ export default async function DashboardLayout({
       <SidebarInset>
         <Header />
 
-        {/* <div className="flex flex-1 flex-col gap-4 p-4 pt-0"> */}
-          {children}
-        {/* </div> */}
+        {children}
       </SidebarInset>
     </SidebarProvider>
   );
