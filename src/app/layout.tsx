@@ -81,7 +81,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
 
       <body
-        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased overflow-hidden`}
       >
         <ThemeProvider
           attribute="class"
