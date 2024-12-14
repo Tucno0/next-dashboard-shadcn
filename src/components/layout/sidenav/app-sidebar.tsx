@@ -25,6 +25,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
 
       <SidebarContent>
+        <NavProjects projects={sidebarConfig.projects} />
         <NavMain items={sidebarConfig.navMain} />
         <NavProjects projects={sidebarConfig.projects} />
       </SidebarContent>
