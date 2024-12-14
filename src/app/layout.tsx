@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { geistMono, geistSans, inter } from "@/lib/fonts";
-import { META_THEME_COLORS, siteConfig } from "@/config/site";
+import { META_THEME_COLORS, siteConfig } from "@/config/site.config";
 
 export const metadata: Metadata = {
   title: {
