@@ -4,8 +4,6 @@ import { User } from "@/interfaces/user.interface";
 import { NavItem } from "@/types";
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
   ChartPie,
   Command,
   Component,
@@ -17,9 +15,7 @@ import {
   LockKeyhole,
   Map,
   PieChart,
-  Settings2,
   ShieldAlert,
-  SquareTerminal,
   UserCog,
 } from "lucide-react";
 
