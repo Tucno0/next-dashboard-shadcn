@@ -46,7 +46,7 @@ export const teams: Team[] = [
 export const overview: NavItem[] = [
   {
     title: "Dashboard",
-    url: "/dashboard/overview",
+    url: "/dashboard/home",
     icon: LayoutDashboard,
   },
   {
@@ -95,6 +95,10 @@ export const navMain: NavItem[] = [
     icon: FileSliders,
     items: [
       {
+        title: "Employees",
+        url: "/dashboard/management/employees",
+      },
+      {
         title: "Products",
         url: "/dashboard/management/products",
       },
@@ -105,10 +109,7 @@ export const navMain: NavItem[] = [
     url: "#",
     icon: UserCog,
     items: [
-      {
-        title: "Employees",
-        url: "/dashboard/users/employees",
-      },
+
       {
         title: "Users",
         url: "/dashboard/users/users",
