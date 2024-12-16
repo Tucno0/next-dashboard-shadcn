@@ -158,11 +158,11 @@ export const navMain: NavItem[] = [
     items: [
       {
         title: "404",
-        url: '/errors/404',
+        url: '/dashboard/errors/404',
       },
       {
         title: "500",
-        url: "/errors/500",
+        url: "/dashboard/errors/500",
       },
     ],
   },
