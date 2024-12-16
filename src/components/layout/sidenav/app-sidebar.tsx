@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NavMain } from "@/components/layout/sidenav/nav-main"
-import { NavProjects } from "@/components/layout/sidenav/nav-projects"
-import { NavUser } from "@/components/layout/sidenav/nav-user"
-import { TeamSwitcher } from "@/components/layout/sidenav/team-switcher"
+import { NavMain } from "@/components/layout/sidenav/nav-main";
+import { NavProjects } from "@/components/layout/sidenav/nav-projects";
+import { NavOverview } from "@/components/layout/sidenav/nav-overview";
+import { NavUser } from "@/components/layout/sidenav/nav-user";
+import { TeamSwitcher } from "@/components/layout/sidenav/team-switcher";
 
 import {
   Sidebar,
@@ -13,27 +14,30 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
-import { sidebarConfig } from "@/config/sidebar.config"
+import { sidebarConfig } from "@/config/sidebar.config";
+import { user } from "@/constants/data";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { overview, teams, navMain, projects } = sidebarConfig;
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={sidebarConfig.teams} />
+        <TeamSwitcher teams={teams} />
       </SidebarHeader>
 
       <SidebarContent>
-        <NavProjects projects={sidebarConfig.projects} />
-        <NavMain items={sidebarConfig.navMain} />
-        <NavProjects projects={sidebarConfig.projects} />
+        <NavOverview title="Overview" navItems={overview} />
+        <NavMain items={navMain} />
+        <NavProjects projects={projects} />
       </SidebarContent>
-      
+
       <SidebarFooter>
-        <NavUser user={sidebarConfig.user} />
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
