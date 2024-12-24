@@ -17,7 +17,6 @@ import { Fragment } from "react";
 export function Breadcrumbs() {
   const pathname = usePathname();
   const segments = pathname.split("/").filter((segment) => segment !== "");
-  console.log(segments);
 
   return (
     <Breadcrumb>

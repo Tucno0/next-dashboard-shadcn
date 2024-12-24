@@ -1,9 +1,11 @@
-import { Header } from "@/components/layout/navbar/header";
-import { AppSidebar } from "@/components/layout/sidenav/app-sidebar";
-
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
+
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/sidenav/app-sidebar";
+import { Header } from "@/components/layout/navbar/header";
+
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
   title: "Next Shadcn Dashboard Starter",
@@ -20,14 +22,17 @@ export default async function DashboardLayout({ children }: Readonly<Props>) {
   const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
 
   return (
-    <SidebarProvider defaultOpen={defaultOpen}>
-      <AppSidebar />
+    <>
+      <NextTopLoader showSpinner={false} />
+      <SidebarProvider defaultOpen={defaultOpen}>
+        <AppSidebar />
 
-      <SidebarInset>
-        <Header />
+        <SidebarInset>
+          <Header />
 
-        {children}
-      </SidebarInset>
-    </SidebarProvider>
+          {children}
+        </SidebarInset>
+      </SidebarProvider>
+    </>
   );
 }
