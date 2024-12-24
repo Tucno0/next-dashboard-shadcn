@@ -1,4 +1,6 @@
-import { ChevronDown, Slash } from "lucide-react";
+"use client";
+
+import { Slash } from "lucide-react";
 
 import {
   Breadcrumb,
@@ -8,42 +10,42 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
+import { usePathname } from "next/navigation";
+import { Fragment } from "react";
 
 export function Breadcrumbs() {
+  const pathname = usePathname();
+  const segments = pathname.split("/").filter((segment) => segment !== "");
+  console.log(segments);
+
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <Slash />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1">
-              Components
-              <ChevronDown />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>Documentation</DropdownMenuItem>
-              <DropdownMenuItem>Themes</DropdownMenuItem>
-              <DropdownMenuItem>GitHub</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <Slash />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
+        {segments.map((segment, index) => (
+          <Fragment key={index}>
+            <BreadcrumbItem>
+              {index === segments.length - 1 ? (
+                <BreadcrumbPage className="capitalize">
+                  {segment}
+                </BreadcrumbPage>
+              ) : (
+                <BreadcrumbLink
+                  href={`/${segments.slice(0, index + 1).join("/")}`}
+                  className="capitalize"
+                >
+                  {segment}
+                </BreadcrumbLink>
+              )}
+            </BreadcrumbItem>
+
+            {index !== segments.length - 1 && (
+              <BreadcrumbSeparator>
+                <Slash />
+              </BreadcrumbSeparator>
+            )}
+          </Fragment>
+        ))}
       </BreadcrumbList>
     </Breadcrumb>
   );
