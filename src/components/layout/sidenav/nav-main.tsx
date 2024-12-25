@@ -18,6 +18,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   items: {
@@ -33,6 +34,8 @@ interface Props {
 }
 
 export function NavMain({ items }: Props) {
+  const currentPath = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -59,7 +62,14 @@ export function NavMain({ items }: Props) {
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
-                        <Link href={subItem.url}>
+                        <Link
+                          href={subItem.url}
+                          className={
+                            currentPath === subItem.url
+                              ? "bg-primary/10 text-primary"
+                              : ""
+                          }
+                        >
                           <span>{subItem.title}</span>
                         </Link>
                       </SidebarMenuSubButton>
@@ -67,11 +77,9 @@ export function NavMain({ items }: Props) {
                   ))}
                 </SidebarMenuSub>
               </CollapsibleContent>
-
             </SidebarMenuItem>
           </Collapsible>
         ))}
-        
       </SidebarMenu>
     </SidebarGroup>
   );
