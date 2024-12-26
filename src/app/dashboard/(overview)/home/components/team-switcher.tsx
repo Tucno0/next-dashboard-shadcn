@@ -72,7 +72,6 @@ type PopoverTriggerProps = React.ComponentPropsWithoutRef<
   typeof PopoverTrigger
 >;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface TeamSwitcherProps extends PopoverTriggerProps {}
 
 export default function TeamSwitcher({ className }: TeamSwitcherProps) {
