@@ -14,35 +14,16 @@ export default async function MailPage() {
   const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined;
 
   return (
-    <>
-      <div className="md:hidden">
-        <Image
-          src="/examples/mail-dark.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="hidden dark:block"
-        />
-        <Image
-          src="/examples/mail-light.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="block dark:hidden"
+    <section className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
+      <div className="hidden flex-col md:flex">
+        <Mail
+          accounts={accounts}
+          mails={mails}
+          defaultLayout={defaultLayout}
+          defaultCollapsed={defaultCollapsed}
+          navCollapsedSize={4}
         />
       </div>
-
-      <section className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-        <div className="hidden flex-col md:flex">
-          <Mail
-            accounts={accounts}
-            mails={mails}
-            defaultLayout={defaultLayout}
-            defaultCollapsed={defaultCollapsed}
-            navCollapsedSize={4}
-          />
-        </div>
-      </section>
-    </>
+    </section>
   );
 }

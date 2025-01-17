@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import { RotateCcw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
