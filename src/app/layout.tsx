@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { geistMono, geistSans, inter } from "@/lib/fonts";
 import { META_THEME_COLORS, siteConfig } from "@/config/site.config";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: {
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableColorScheme
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

@@ -10,10 +10,10 @@ export default function PageContainer({ children, scrollable = true }: Props) {
     <>
       {scrollable ? (
         <ScrollArea className="h-[calc(100dvh-52px)]">
-          <div className="h-full p-4">{children}</div>
+          <div className="h-full p-8">{children}</div>
         </ScrollArea>
       ) : (
-        <div className="h-full p-4">{children}</div>
+        <div className="h-full p-8">{children}</div>
       )}
     </>
   );
