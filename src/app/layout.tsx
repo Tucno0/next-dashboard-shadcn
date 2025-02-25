@@ -1,9 +1,12 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+
+import { META_THEME_COLORS, siteConfig } from "@/config/site.config";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { geistMono, geistSans, inter } from "@/lib/fonts";
-import { META_THEME_COLORS, siteConfig } from "@/config/site.config";
 import { Toaster } from "@/components/ui/toaster";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -94,6 +97,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
           <Toaster />
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   );
